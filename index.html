@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Users</title>
+    <link rel="shortcut icon" href="public/assets/api.svg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body>
+    
+    <header>
+      <div class="buttons">
+        <button id="btnList" class="active" type="button">Listar Usuários</button>
+        <button id="btnRegister" type="button">Cadastrar Usuário</button>
+      </div>
+    </header>
+
+    <main class="container active"></main>
+
+    <div class="container-edit">
+      <div class="edit">
+        <div class="logo">
+          <img src="/public/assets/editar.svg" alt="Editando usuário" />
+  
+          <h1>Editando</h1>
+        </div>
+  
+        <form id="formEdit"></form>
+      </div>
+    </div>
+
+    <div class="container-register">
+      <div class="register">
+        <div class="logo">
+          <img src="/public/assets/cadastro.svg" alt="Cadastrando usuário" />
+  
+          <h1>Cadastrar Usuário</h1>
+        </div>
+  
+        <form id="formRegister">
+          <div>
+            <label>Nome</label>
+            <input type="text" name="name" placeholder="Digite seu Nome" />
+          </div>
+  
+          <div>
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Digite seu email" />
+          </div>
+
+          <div>
+            <label>Senha</label>
+            <input type="password" name="password" placeholder="Digite sua senha" />
+          </div>
+
+          <div>
+            <label>Idade</label>
+            <input type="text" name="age" placeholder="Digite sua Idade" />
+          </div>
+
+          <div>
+            <label>Foto</label>
+            <input type="text" name="photo" placeholder="link de sua foto" />
+          </div>
+       
+          <div>
+            <label>Descrição <small>(max 235 caractere)</small></label>
+            <textarea name="description" maxlength="235" placeholder="Digite sua descrição"></textarea>
+          </div>
+
+          <button id="btn-register" type="submit">
+            Cadastrar
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <script src="/public/js/index.js"></script>
+  </body>
+</html>

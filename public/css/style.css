@@ -1,0 +1,450 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background: var(--color-background);
+}
+
+:root {
+  --color-background: #121214;
+  --color-green: #04d361;
+  --color-red: #ce4a4a;
+  --color-orange: #ff7a29;
+  --color-yellow: #FFCD1E ;
+  --color-purple: #8257e6;
+  --color-secondary: #e1e1e6;
+  --color-text: #a8a8b3;
+  --color-support: #737380;
+  --color-shape: #202024;
+  --color-shape-hover: #29292e;
+  --color-icons: #41414d;
+  --color-borders: #323238;
+  --color-black: #09090a;
+  --color-white: #fff;
+  --color-scrollbar: #4d4d57;
+  --color-scrollbar-background: transparent;
+}
+
+header {
+  width: 100%;
+  background: var(--color-shape);
+  padding-bottom: 10px;
+}
+
+header div.buttons {
+  margin: 0 auto;
+  padding-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+header div.buttons button {
+  width: 170px;
+  height: 35px;
+  background: var(--color-background);
+  border: 1px solid var(--color-shape);
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  cursor: pointer;
+}
+
+header div.buttons button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  border-color: var(--color-yellow);
+  -webkit-box-shadow: 0 0 10px var(--color-yellow);
+          box-shadow: 0 0 10px var(--color-yellow);
+}
+
+header div.buttons button.active {
+  border-color: var(--color-yellow);
+}
+
+main.container.active {
+  width: 90%;
+  margin: 10px auto;
+  padding-bottom: 100px;
+  opacity: 1;
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 60px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main.container.active div.user {
+  max-width: 33%;
+  min-width: 350px;
+  position: relative;
+  background: var(--color-shape);
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-animation-name: animate-up;
+          animation-name: animate-up;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+}
+
+main.container.active div.user div.buttons-actions {
+  position: absolute;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+main.container.active div.user div.buttons-actions button {
+  background: none;
+  border: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+main.container.active div.user div.buttons-actions button img {
+  width: 30px;
+}
+
+main.container.active div.user div.buttons-actions button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+main.container.active div.user div.img {
+  max-width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main.container.active div.user div.img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main.container.active div.user div.info {
+  padding: 20px;
+}
+
+main.container.active div.user div.info h2 {
+  color: var(--color-yellow);
+}
+
+main.container.active div.user div.info p {
+  padding-top: 8px;
+  color: var(--color-orange);
+}
+
+main.container.active div.user div.info p span {
+  color: var(--color-yellow);
+  padding-left: 7px;
+}
+
+main.container.active div.user div.description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+main.container.active div.user div.description p {
+  text-align: justify;
+  color: #fff;
+}
+
+main.container {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+div.container-edit {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+div.container-edit.active {
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 1;
+  visibility: visible;
+}
+
+div.container-edit.active div.edit {
+  width: 600px;
+  background: var(--color-shape);
+  padding: 10px 20px;
+  margin: 20px auto;
+}
+
+div.container-edit.active div.edit div.logo {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+div.container-edit.active div.edit div.logo img {
+  width: 70px;
+}
+
+div.container-edit.active div.edit div.logo h1 {
+  color: var(--color-yellow);
+}
+
+div.container-edit.active div.edit form {
+  padding-bottom: 100px;
+  position: relative;
+}
+
+div.container-edit.active div.edit form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  color: #fff;
+}
+
+div.container-edit.active div.edit form div label {
+  color: var(--color-yellow);
+  padding-bottom: 10px;
+}
+
+div.container-edit.active div.edit form div input {
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+div.container-edit.active div.edit form div textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+
+div.container-edit.active div.edit form button {
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: var(--color-orange);
+  border: 2px solid var(--color-shape-hover);
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--color-background);
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+div.container-edit.active div.edit form button:hover {
+  -webkit-transform: translateX(-50%) scale(1.1);
+          transform: translateX(-50%) scale(1.1);
+  -webkit-box-shadow: 0 0 10px var(--color-orange);
+          box-shadow: 0 0 10px var(--color-orange);
+}
+
+div.container-register {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+div.container-register.active {
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+div.container-register.active div.register {
+  width: 600px;
+  background: var(--color-shape);
+  padding: 10px 20px;
+  margin: 20px auto;
+}
+
+div.container-register.active div.register div.logo {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+div.container-register.active div.register div.logo img {
+  width: 70px;
+}
+
+div.container-register.active div.register div.logo h1 {
+  color: var(--color-yellow);
+}
+
+div.container-register.active div.register form {
+  padding-bottom: 100px;
+  position: relative;
+}
+
+div.container-register.active div.register form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+  color: #fff;
+}
+
+div.container-register.active div.register form div label {
+  color: var(--color-yellow);
+  padding-bottom: 10px;
+}
+
+div.container-register.active div.register form div input {
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+div.container-register.active div.register form div textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+
+div.container-register.active div.register form button {
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: var(--color-orange);
+  border: 2px solid var(--color-shape-hover);
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--color-background);
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+div.container-register.active div.register form button:hover {
+  -webkit-transform: translateX(-50%) scale(1.1);
+          transform: translateX(-50%) scale(1.1);
+  -webkit-box-shadow: 0 0 10px var(--color-orange);
+          box-shadow: 0 0 10px var(--color-orange);
+}
+
+@-webkit-keyframes animate-up {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes animate-up {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */
