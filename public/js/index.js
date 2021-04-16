@@ -169,6 +169,7 @@ const App = {
       response.json().then(data => {
         if (data.message === 'sucess') {
           alert('Usuário alterado com sucesso!');
+          App.init();
           form.reset();
           containerEdit.classList.remove('active');
           containerList.classList.add('active');
