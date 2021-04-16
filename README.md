@@ -2,10 +2,18 @@
 ## Apresentação
 
 <p align="center">
-  <img width="800px" height="450px" src="./public/assets/img-readme.png" alt="Imagem projeto"/>
+  <img width="800px" height="400px" src="./public/assets/img-readme.png" alt="Imagem projeto"/>
+</p>
+
+<p align="center">
+  <img width="800px" height="400px" src="./public/assets/edit-readme.png" alt="Imagem projeto"/>
+</p>
+
+<p align="center">
+  <img width="800px" height="400px" src="./public/assets/register-readme.png" alt="Imagem projeto"/>
 </p>
 
 ### Projeto:
 
-- Nome: SiqBlog.
-- Ideia: Aplicação para praticar Node.js, ejs e MongoDB.
+- Nome: Users.
+- Ideia: Praticar o consumo de APi.
