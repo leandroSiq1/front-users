@@ -1,6 +1,8 @@
 const containerList = document.querySelector('.container');
 const containerEdit = document.querySelector('.container-edit');
 const containerRegister = document.querySelector('.container-register');
+const btnList = document.querySelector("#btnList");
+const btnRegister = document.querySelector("#btnRegister");
 
 const URL_API = 'http://localhost:8080/api/users';
 
@@ -25,9 +27,6 @@ const App = {
   },
 
   activeButton(event) {
-    const btnList = document.querySelector("#btnList");
-    const btnRegister = document.querySelector("#btnRegister");
-
     btnList.classList.remove('active');
     btnRegister.classList.remove('active');
     
@@ -115,32 +114,46 @@ const App = {
     const description = document.forms["formRegister"].description.value;
     const photo = document.forms["formRegister"].photo.value;password;
 
-    fetch(`${URL_API}`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({ 
-        name,
-        age,
-        email,
-        password, 
-        description,
-        photo
-      })
-    }).then(response => {
-      response.json().then(data => {
-        if (data.message === 'sucess') {
-          alert('Cadastro realizado com sucesso');
-          form.reset();
-          App.init();
-          containerRegister.classList.remove('active');
-          containerList.classList.add('active');
-        } else {
-          alert('Ops ocorreu um erro tente novamente!');
-        }
-      })
-    });
+    const response = App.validateFiels(name, email, password, age, description, photo);
+
+    if (response.ok === true) {
+      fetch(`${URL_API}`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          name,
+          age,
+          email,
+          password, 
+          description,
+          photo
+        })
+      }).then(response => {
+        response.json().then(data => {
+          if (data.message === 'sucess') {
+            alert('Cadastro realizado com sucesso');
+  
+            form.reset();
+            App.init();
+  
+            containerRegister.classList.remove('active');
+            containerList.classList.add('active');
+  
+            btnList.classList.add('active');
+            btnRegister.classList.remove('active');
+  
+          } else {
+            alert('Ops ocorreu um erro tente novamente!');
+          }
+        })
+      });
+
+      return;
+    }
+
+    alert('Preencha todos os campos!');
   },
 
   async editUser(event) {
@@ -153,29 +166,47 @@ const App = {
     const description = document.forms["formEdit"].description.value;
     const photo = document.forms["formEdit"].photo.value;
 
-    fetch(`${URL_API}/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name,
-        age,
-        email,
-        description,
-        photo
-      })
-    }).then(response => {
-      response.json().then(data => {
-        if (data.message === 'sucess') {
-          alert('Usuário alterado com sucesso!');
-          App.init();
-          form.reset();
-          containerEdit.classList.remove('active');
-          containerList.classList.add('active');
-        }
-      })
-    })
+    const response = App.validateFiels(name, email, age, photo);
+
+    if (response.ok === true) {
+      const newDescription = description ? description : undefined;
+
+      fetch(`${URL_API}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          age,
+          email,
+          description: newDescription,
+          photo
+        })
+      }).then(response => {
+        response.json().then(data => {
+          if (data.message === 'sucess') {
+            alert('Usuário alterado com sucesso!');
+            App.init();
+            form.reset();
+            containerEdit.classList.remove('active');
+            containerList.classList.add('active');
+          }
+        })
+      });
+    }
+  },
+
+  validateFiels(name, email, password, age, description, photo) {
+
+    if ( name === "" || email === "" || password === "" || age === "" || description === "" || photo === "" || null ) {
+        console.log(description)
+        console.log(status.ok);
+        return { ok: false };
+    } else {
+      
+      return { ok: true };
+    }
   },
 
   async renderFormEdit(event) {
